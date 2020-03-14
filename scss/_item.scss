@@ -1,0 +1,30 @@
+.item{
+    display: flex;
+    &-wrapper{
+        display: flex;
+        align-items: center;
+        background-color: #f4f4f4;
+        width: 100%;
+        padding: 16px;
+        margin-bottom: 2px;
+    }
+    &-score{
+        flex: 0 0 50px;
+        font-size: 30px;
+        color: navy;
+        margin-right: 16px;
+        text-align: center;
+    }
+    &-content{
+       
+        
+    }
+    &-title{
+        font-weight: 500;
+        font-size: 20px;
+    }
+    p{
+        font-weight: 400;
+        font-style: italic;
+    }
+}

@@ -1,0 +1,58 @@
+.nav{
+    height: 55px;
+    background: navy;
+    &-content{
+        max-width: 640px;
+        display: flex;
+        align-items: center;
+        margin: auto;
+        height: 100%;
+        padding: 0 16px;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &-logo{
+        width: 30px;
+        height: 30px;
+    }
+    &-link{
+        display: flex;
+        align-items: center;    
+        height: 100%;    
+        li{
+            height: 100%;
+           
+        }
+    }
+    a{
+        margin: 0 16px;
+        color: #fff;
+        width: 100%;
+        height: 100%;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        &:hover{
+            background-color: white;
+            color: navy;
+        }
+    }
+}
+
+a.router-link-exact-active{
+    background-color: white;
+    color: navy;
+}
+
+a.nav-logo-link{
+    background: transparent;
+    width: 23px;
+    margin: 0;
+    &:hover{
+        background: transparent;
+    }
+}

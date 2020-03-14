@@ -1,0 +1,11 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+        font-weight: 500;
+        font-size: 20px;
+        margin: 16px;
+        cursor: pointer;
+    }
+}
