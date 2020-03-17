@@ -15,10 +15,6 @@
         margin-right: 16px;
         text-align: center;
     }
-    &-content{
-       
-        
-    }
     &-title{
         font-weight: 500;
         font-size: 20px;
@@ -26,5 +22,17 @@
     p{
         font-weight: 400;
         font-style: italic;
+    }
+    &.fade-enter-active {
+        transition: opacity 0.5s;
+      }
+    &.fade-leave-active {
+      transition: opacity 0.5s;
+    }
+    &.fade-enter {
+        opacity: 0;
+    } 
+    &.fade-leave-to {
+      opacity: 0;
     }
 }

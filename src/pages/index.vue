@@ -30,7 +30,6 @@ export default {
     }
   },
   created() {
-    console.log(1);
     this.fetchNew(`${this.$route.params.category}stories`);
   },
   methods: {

@@ -1,18 +1,20 @@
 <template>
-  <li class="item">
-    <div class="item-wrapper">
-      <div class="item-score">{{post.score}}</div>
-      <div class="item-content">
-        <h1 class="item-title">{{post.title}}</h1>
-        <p>
-          <span>by</span>
-          <router-link to="/">{{post.by}}</router-link>
-          {{millisecondsToStr(post.time)}}
-          <router-link to="/">{{post.descendants}} comments</router-link>
-        </p>
+  <transition name="fade">
+    <li class="item" v-if="!loading">
+      <div class="item-wrapper">
+        <div class="item-score">{{post.score}}</div>
+        <div class="item-content">
+          <h1 class="item-title">{{post.title}}</h1>
+          <p>
+            <span>by</span>
+            <router-link to="/">{{post.by}}</router-link>
+            {{millisecondsToStr(post.time)}}
+            <router-link to="/">{{post.descendants}} comments</router-link>
+          </p>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
+  </transition>
 </template>
 
 <script>
@@ -26,19 +28,18 @@ export default {
   },
   data: function() {
     return {
-      post: {}
+      post: {},
+      loading: true
     };
   },
   async created() {
     let res = await fetch(`${api_host}item/${this.id}.json?print=pretty`);
     let data = await res.json();
+    this.loading = false;
     this.post = data;
   },
   methods: {
     millisecondsToStr(milliseconds) {
-      // TIP: to find current time in milliseconds, use:
-      // var  current_time_milliseconds = new Date().getTime();
-
       function numberEnding(number) {
         return number > 1 ? "s" : "";
       }
@@ -48,7 +49,6 @@ export default {
       if (years) {
         return years + " year" + numberEnding(years);
       }
-      //TODO: Months! Maybe weeks?
       var days = Math.floor((temp %= 31536000) / 86400);
       if (days) {
         return days + " day" + numberEnding(days);
@@ -65,11 +65,8 @@ export default {
       if (seconds) {
         return seconds + " second" + numberEnding(seconds);
       }
-      return "less than a second"; //'just now' //or other string you like;
+      return "less than a second";
     }
   }
 };
 </script>
-
-<style>
-</style>
